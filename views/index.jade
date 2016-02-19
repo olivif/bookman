@@ -15,12 +15,14 @@ block body
     .container      
         div(ng-controller='AppController')
             div(ng-view)
+    
     #push
     
   #footer
     .container
+        br
         div.muted.credit 
-            | Angular seed app: v
+            | Copyright @olivif 2016 - bookman 
             span(app-version)
 
   script(src='js/lib/angular/angular.js')
@@ -29,4 +31,5 @@ block body
   script(src='js/controllers.js')
   script(src='js/filters.js')
   script(src='js/directives.js')
+  script(src='js/lib/jquery/jquery-2.0.3.min.js')
   script(src='bootstrap/js/bootstrap.min.js')

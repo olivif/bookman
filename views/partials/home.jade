@@ -2,13 +2,15 @@ br
 br
 br
 br
-
-p Welcome to bookman.
-
 ul
-    li(ng-repeat="book in books")
-        div
-            .card(style='background-image: url({{book.thumb}});')
-                p {{book.title}}
-                p {{book.author}}
-                p {{book.description}}
+    .nav.nav-pills.nav-stacked.col-md-2
+        li(ng-repeat="shelf in shelves", role="presentation")
+            div
+                a(href="#"){{shelf.name}}          
+ul
+    .col-md-10
+        li(ng-repeat="book in books")
+            div
+                .card(style='background-image: url({{book.thumb}});')
+                    h3 {{book.title}}
+                    p {{book.author}}
