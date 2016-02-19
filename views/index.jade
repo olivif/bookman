@@ -2,11 +2,14 @@ extends layout
 
 block body
   .navbar.navbar-default.navbar-fixed-top(role="navigation")
-    .navbar-header
-      a.navbar-brand(href="#") bookman
+    .container
+        .navbar-header
+            a.navbar-brand(href="#") bookman
     
-    .collapse.navbar-collapse.navbar-ex1-collapse
-      ul.nav.navbar-nav
+        .collapse.navbar-collapse.navbar-ex1-collapse
+            ul.nav.navbar-nav.navbar-right
+                li
+                    a(href="#") User1 
 
   .container      
     div(ng-controller='AppController')
