@@ -11,6 +11,11 @@ var app = angular.module('bookmanApp', [
 // Configure routes
 app.config(function ($routeProvider, $locationProvider) {
     $routeProvider
+        .when('/', {
+            templateUrl: 'partials/home',
+            controller: 'HomeController'
+        })
+        
         .when('/view1', {
             templateUrl: 'partials/partial1',
             controller: 'MyCtrl1'
@@ -20,7 +25,7 @@ app.config(function ($routeProvider, $locationProvider) {
             controller: 'MyCtrl2'
         }).
         otherwise({
-            redirectTo: '/view1'
+            redirectTo: '/'
         });
 
     $locationProvider.html5Mode(true);

@@ -26,3 +26,7 @@ controllers.controller('MyCtrl1', function ($scope) {
 // MyCtrl2
 controllers.controller('MyCtrl2', function ($scope) {
 });
+
+// HomeController
+controllers.controller('HomeController', function ($scope) {
+});
