@@ -1,1 +1,14 @@
+br
+br
+br
+br
+
 p Welcome to bookman.
+
+ul
+    li(ng-repeat="book in books")
+        div
+            .card(style='background-image: url({{book.thumb}});')
+                p {{book.title}}
+                p {{book.author}}
+                p {{book.description}}
