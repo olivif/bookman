@@ -38,6 +38,3 @@ node_modules
 
 # debug
 out.txt
-
-# bower
-bower_components

@@ -1,0 +1,44 @@
+{
+    "name": "bookman",
+    "version": "0.0.0",
+    "description": "A book manager for reading buffs.",
+    "scripts": {
+        "start": "node app.js",
+        "test": "mocha",
+        "test-travis-1": "istanbul cover ./node_modules/mocha/bin/_mocha -- -R spec",
+        "test-travis-2": "./node_modules/.bin/codecov"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/olivif/bookman.git"
+    },
+    "keywords": [
+        "bookman",
+        "book",
+        "books",
+        "manager",
+        "reading",
+        "tracker"
+    ],
+    "author": "Olivia Ifrim",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/olivif/bookman/issues"
+    },
+    "homepage": "https://github.com/olivif/bookman#readme",
+    "dependencies": {
+        "body-parser": "^1.0.2",
+        "error-handler": "^0.1.4",
+        "express": "~4.1.1",
+        "express-error-handler": "^1.0.1",
+        "jade": "~0.31.2",
+        "method-override": "^1.0.0",
+        "morgan": "^1.0.0"
+    },
+    "devDependencies": {
+        "codecov": "^1.0.1",
+        "istanbul": "^0.4.2",
+        "mocha": "^2.4.5",
+        "should": "^8.2.2"
+    }
+}
