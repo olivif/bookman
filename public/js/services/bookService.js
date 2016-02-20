@@ -1,8 +1,3 @@
-'use strict';
-
-// Version service
-app.value('version', '0.1');
-
 // Book service
 app.factory('bookService', function () {
     var instance = {};

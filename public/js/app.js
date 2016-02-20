@@ -10,19 +10,14 @@ var app = angular.module('bookmanApp', [
 app.config(function ($routeProvider, $locationProvider) {
     $routeProvider
         .when('/', {
+            templateUrl: 'partials/login',
+            controller: 'LoginController'
+        })
+        .when('/home', {
             templateUrl: 'partials/home',
             controller: 'HomeController'
         })
-        
-        .when('/view1', {
-            templateUrl: 'partials/partial1',
-            controller: 'MyCtrl1'
-        })
-        .when('/view2', {
-            templateUrl: 'partials/partial2',
-            controller: 'MyCtrl2'
-        }).
-        otherwise({
+        .otherwise({
             redirectTo: '/'
         });
 
