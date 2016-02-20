@@ -16,14 +16,6 @@ app.controller('AppController', function ($scope, $http) {
 
 });
 
-// MyCtrl1
-app.controller('MyCtrl1', function ($scope) {
-});
-
-// MyCtrl2
-app.controller('MyCtrl2', function ($scope) {
-});
-
 // HomeController
 app.controller('HomeController', ["$scope", "bookService", function ($scope, bookService) {
     

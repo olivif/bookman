@@ -13,16 +13,7 @@ app.config(function ($routeProvider, $locationProvider) {
             templateUrl: 'partials/home',
             controller: 'HomeController'
         })
-        
-        .when('/view1', {
-            templateUrl: 'partials/partial1',
-            controller: 'MyCtrl1'
-        })
-        .when('/view2', {
-            templateUrl: 'partials/partial2',
-            controller: 'MyCtrl2'
-        }).
-        otherwise({
+        .otherwise({
             redirectTo: '/'
         });
 
