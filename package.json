@@ -6,7 +6,7 @@
     "start": "node app.js",
     "test": "mocha && karma start --single-run --browsers PhantomJS",
     "test-travis-1": "istanbul cover ./node_modules/mocha/bin/_mocha -- -R spec",
-    "test-travis-2": "istanbul cover ./node_modules/karma/bin/karma start --single-run",
+    "test-travis-2": "karma start --single-run",
     "test-travis-3": "./node_modules/.bin/codecov"
   },
   "repository": {
