@@ -27,6 +27,6 @@ app.controller('HomeController', ["$scope", "bookService", function ($scope, boo
     $scope.testVariable = "test";
 }]);
 
-// EmptyController
-app.controller('EmptyController', function ($scope) {
+// LoginController
+app.controller('LoginController', function ($scope) {
 });

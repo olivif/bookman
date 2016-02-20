@@ -3,6 +3,8 @@ node_js:
 - '4.2'
 install:
 - npm install
+before_script: 
+- bower install 
 script:
 - npm run test-travis-1
 - npm run test-travis-2

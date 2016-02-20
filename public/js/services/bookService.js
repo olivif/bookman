@@ -13,6 +13,7 @@ app.factory('bookService', function () {
         sampleBook.thumb = "http://placehold.it/150x200";
         
         for (var bookIdx = 0; bookIdx < numberOfBooks; bookIdx++) {
+            sampleBook.id = bookIdx;
             books.push(sampleBook);
         }
 
