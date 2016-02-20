@@ -4,9 +4,10 @@
   "description": "A book manager for reading buffs.",
   "scripts": {
     "start": "node app.js",
-    "test": "mocha",
+    "test": "mocha && karma start --single-run --browsers PhantomJS",
     "test-travis-1": "istanbul cover ./node_modules/mocha/bin/_mocha -- -R spec",
-    "test-travis-2": "./node_modules/.bin/codecov"
+    "test-travis-2": "istanbul cover ./node_modules/karma/bin/karma start --single-run",
+    "test-travis-3": "./node_modules/.bin/codecov"
   },
   "repository": {
     "type": "git",
@@ -47,6 +48,7 @@
     "karma": "^0.13.21",
     "karma-chai": "^0.1.0",
     "karma-chrome-launcher": "^0.2.2",
+    "karma-coverage": "^0.5.3",
     "karma-jasmine": "^0.3.7",
     "karma-mocha": "^0.2.2",
     "karma-phantomjs-launcher": "^1.0.0",

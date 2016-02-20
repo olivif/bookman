@@ -6,6 +6,7 @@ install:
 script:
 - npm run test-travis-1
 - npm run test-travis-2
+- npm run test-travis-3
 env:
   global:
   - secure: MpnDhnFnlH89HfB+4YNE0ly9THF53H7H6jX9F+uIV34kepKSmHufJtgJwKUdHB3tm+CIVyefjiE4Zd5aBODrOsG5sL1aO4ik4ZNuEVZOsZhQ4l3oQkFPu/zPhXBwOLGjIaXQNnekvKgmFvjFBIfSGFzdzvfc7ozhg3GxXTkrZeqBSFrgBKIO3OyzfRUci9lGkmXBfvVt9JqQPpx/bihjn59AP36NzyM32V2ZnjGkeuk60RYFrn0zy+0w15ajF1jBvxryUjVz+SyHh+MTnTn+Zqz8A7hqWa/Vtfxihy+3WVVw/Cx7ecubGsfHdUppiJLmnelBvJR+zbqXUkr88AKwWpXBm7gDeEosF6fHtOB8/HUQOk4DhGSvHGTecC6R3NLGgExNdGOv2n6bURUS9Kl2x6MxD7eETLWGX5Hk5dnQwDMaGu9lJXFTohFTifRskGkn5G4j+gV2+Ymdv2VvJCm6ldMVlG++ZIfxV2EonJlHRXFpGlcaJP21jjltSfgQUvNt/BWYpYGQmVzpIgQ3gVaE9cO27ht2b5HSecINVm3KgknZeISF29/vmFUojkMKkRPCN6n4N0PZgm/dNa2iaVuJZH+DPvwg6sH/sDpmxBzejkYadtXjigiSR2ILGrgguQD+CGC1dwejzwuWFHjIOqAmiaEvmIUkE+1PkBd/Q5PaI4A=
