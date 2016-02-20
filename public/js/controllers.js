@@ -2,18 +2,6 @@
 
 // AppController
 app.controller('AppController', function ($scope, $http) {
-
-    $http({
-        method: 'GET',
-        url: '/api/name'
-    }).
-        success(function (data, status, headers, config) {
-            $scope.name = data.name;
-        }).
-        error(function (data, status, headers, config) {
-            $scope.name = 'Error!';
-        });
-
 });
 
 // HomeController
@@ -27,3 +15,7 @@ app.controller('HomeController', ["$scope", "bookService", function ($scope, boo
         console.log("selected " + shelf);
     }
 }]);
+
+// LoggedInController
+app.controller('LoggedInController', function ($scope, $http) {
+});

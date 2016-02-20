@@ -13,6 +13,10 @@ app.config(function ($routeProvider, $locationProvider) {
             templateUrl: 'partials/home',
             controller: 'HomeController'
         })
+        .when('/login', {
+            templateUrl: 'partials/partial1',
+            controller: 'LoggedInController'
+        })
         .otherwise({
             redirectTo: '/'
         });

@@ -44,7 +44,7 @@ passport.deserializeUser(function(obj, done) {
 passport.use(new GoodreadsStrategy({
     consumerKey: process.env.GOODREADS_KEY,
     consumerSecret: process.env.GOODREADS_SECRET,
-    callbackURL: "http://localhost:3000/goodreads/callback"
+    callbackURL: "http://localhost:3000/login"
   },
   function(token, tokenSecret, profile, done) {
     // asynchronous verification, for effect...
@@ -79,6 +79,15 @@ app.use(session({
 // persistent login sessions (recommended). 
 app.use(passport.initialize()); 
 app.use(passport.session()); 
+
+//CORS middleware
+app.use(function (req, res, next) {
+    res.header('Access-Control-Allow-Credentials', true);
+    res.header('Access-Control-Allow-Origin', req.headers.origin);
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.header('Access-Control-Allow-Headers', 'X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept');
+    next();
+});
 
 var env = process.env.NODE_ENV || 'development';
 
@@ -115,7 +124,9 @@ app.get('/goodreads/callback',
     passport.authenticate('goodreads', { failureRedirect: '/login' }),
     function (req, res) {
         console.log("Got callback from goodreads");
-        res.redirect('/');
+        console.log(req.user);
+        res.send(200);
+        // res.redirect('/');
     });
 
 // Redirect all others to the index (HTML5 history)
