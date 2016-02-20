@@ -30,12 +30,12 @@ controllers.controller('MyCtrl2', function ($scope) {
 // HomeController
 controllers.controller('HomeController', function ($scope) {
     
-    function getMockBooks(numberOfBooks) {
+    function getMockBooks(numberOfBooks, prefix) {
         var books = [];
         
         // Generate sample book
         var sampleBook = {};
-        sampleBook.title = "Sample book";
+        sampleBook.title = prefix + "Sample book";
         sampleBook.description = "I am so interesting you will want to read me.";
         sampleBook.author = "John Smith";
         sampleBook.thumb = "http://placehold.it/150x200";
@@ -48,6 +48,8 @@ controllers.controller('HomeController', function ($scope) {
     }
     
     function getMockShelves() {
+        
+        var booksPerShelf = 10;
         var names = [
           "currently reading",
           "to read",  
@@ -56,17 +58,27 @@ controllers.controller('HomeController', function ($scope) {
         ];
         
         var shelves = [];
+        var id = 0;
+        
         names.forEach(function(name) {
-            shelves.push({ name: name });
+            var shelf = {};
+            shelf.id = id++;
+            shelf.name = name;
+            shelf.books = getMockBooks(booksPerShelf, name);
+                
+            shelves.push(shelf);
         }, this);
         
         return shelves;
     }
     
     // Add to scope
-    $scope.books = getMockBooks(10);
     $scope.shelves = getMockShelves();
+    $scope.shelves.selectedShelf = $scope.shelves[0];
+    $scope.selectShelf = function(shelf) {
+        $scope.shelves.selectedShelf = shelf;
+        console.log("selected " + shelf);
+    }
     
-    console.log($scope.books);
     console.log($scope.shelves);
 });

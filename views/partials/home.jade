@@ -4,12 +4,12 @@ br
 br
 ul
     .nav.nav-pills.nav-stacked.col-md-2
-        li(ng-repeat="shelf in shelves", role="presentation")
+        li(ng-repeat="shelf in shelves", role="presentation", ng-click="selectShelf(shelf)")
             div
-                a(href="#"){{shelf.name}}          
+                a(href="#"){{shelf.name}}  
 ul
     .col-md-10
-        li(ng-repeat="book in books")
+        li(ng-repeat="book in shelves.selectedShelf.books")
             div
                 .card(style='background-image: url({{book.thumb}});')
                     h3 {{book.title}}
