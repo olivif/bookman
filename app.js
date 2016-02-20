@@ -13,6 +13,8 @@ var api = require('./routes/api');
 var http = require('http');
 var path = require('path');
 
+var userStore = require('./lib/userStore');
+
 // Env
 var dotenv = require('dotenv');
 dotenv.load();
@@ -125,8 +127,13 @@ app.get('/goodreads/callback',
     function (req, res) {
         console.log("Got callback from goodreads");
         console.log(req.user);
+        userStore.storeGoodreadsUser(req.user);
         res.redirect('/home');
     });
+
+app.get('/user/name', function (req, res) {
+  res.send(userStore.user.name);
+});
 
 // Redirect all others to the index (HTML5 history)
 app.get('*', routes.index);

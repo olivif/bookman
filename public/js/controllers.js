@@ -1,11 +1,20 @@
 'use strict';
 
 // AppController
-app.controller('AppController', function ($scope, $http) {
-});
+app.controller('AppController', ["$scope", "userService", function ($scope, userService) {
+    
+    // Load user name 
+    userService.getUserName()
+        .success(function (data, status, headers, config) {
+            $scope.userName = data;
+        })
+        .error(function (data, status, headers, config) {
+            // set some error somewhere
+        });  
+}]);
 
 // HomeController
-app.controller('HomeController', ["$scope", "bookService", function ($scope, bookService) {
+app.controller('HomeController', ["$scope", "bookService", function ($scope, bookService, userService) {
     
     // Get shelves
     $scope.shelves = bookService.getShelves();
@@ -14,6 +23,8 @@ app.controller('HomeController', ["$scope", "bookService", function ($scope, boo
         $scope.shelves.selectedShelf = shelf;
         console.log("selected " + shelf);
     }
+    
+
 }]);
 
 // LoginController
