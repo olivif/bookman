@@ -44,7 +44,7 @@ passport.deserializeUser(function(obj, done) {
 passport.use(new GoodreadsStrategy({
     consumerKey: process.env.GOODREADS_KEY,
     consumerSecret: process.env.GOODREADS_SECRET,
-    callbackURL: "/home"
+    callbackURL: "/goodreads/callback"
   },
   function(token, tokenSecret, profile, done) {
     // asynchronous verification, for effect...
@@ -125,8 +125,7 @@ app.get('/goodreads/callback',
     function (req, res) {
         console.log("Got callback from goodreads");
         console.log(req.user);
-        res.send(200);
-        // res.redirect('/');
+        res.redirect('/home');
     });
 
 // Redirect all others to the index (HTML5 history)
