@@ -1,0 +1,26 @@
+{
+  "name": "bookman",
+  "description": "A book manager for reading buffs.",
+  "main": "",
+  "authors": [
+    "Olivia Ifrim"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "bookman",
+    "book",
+    "books",
+    "manager",
+    "reading",
+    "tracker"
+  ],
+  "homepage": "https://github.com/olivif/bookman",
+  "moduleType": [
+    "node"
+  ],
+  "dependencies": {
+    "angular": "^1.5.0",
+    "angular-mocks": "^1.5.0",
+    "angular-route": "^1.5.0"
+  }
+}

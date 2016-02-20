@@ -14,7 +14,7 @@ app.controller('AppController', ["$scope", "userService", function ($scope, user
 }]);
 
 // HomeController
-app.controller('HomeController', ["$scope", "bookService", function ($scope, bookService, userService) {
+app.controller('HomeController', ["$scope", "bookService", function ($scope, bookService) {
     
     // Get shelves
     $scope.shelves = bookService.getShelves();
@@ -24,9 +24,9 @@ app.controller('HomeController', ["$scope", "bookService", function ($scope, boo
         console.log("selected " + shelf);
     }
     
-
+    $scope.testVariable = "test";
 }]);
 
-// LoginController
-app.controller('LoginController', function ($scope, $http) {
+// EmptyController
+app.controller('EmptyController', function ($scope) {
 });
