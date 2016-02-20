@@ -1,10 +1,7 @@
 'use strict';
 
 // Declare app module and dependencies
-var app = angular.module('bookmanApp', [
-    'bookmanApp.filters',
-    'bookmanApp.directives'
-]);
+var app = angular.module('bookmanApp', ['ngRoute']);
 
 // Configure routes
 app.config(function ($routeProvider, $locationProvider) {
