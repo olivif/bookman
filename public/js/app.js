@@ -2,9 +2,7 @@
 
 // Declare app module and dependencies
 var app = angular.module('bookmanApp', [
-    'bookmanApp.controllers',
     'bookmanApp.filters',
-    'bookmanApp.services',
     'bookmanApp.directives'
 ]);
 
