@@ -16,6 +16,6 @@ app.controller('HomeController', ["$scope", "bookService", function ($scope, boo
     }
 }]);
 
-// LoggedInController
-app.controller('LoggedInController', function ($scope, $http) {
+// LoginController
+app.controller('LoginController', function ($scope, $http) {
 });

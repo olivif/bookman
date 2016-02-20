@@ -44,7 +44,7 @@ passport.deserializeUser(function(obj, done) {
 passport.use(new GoodreadsStrategy({
     consumerKey: process.env.GOODREADS_KEY,
     consumerSecret: process.env.GOODREADS_SECRET,
-    callbackURL: "http://localhost:3000/login"
+    callbackURL: "/home"
   },
   function(token, tokenSecret, profile, done) {
     // asynchronous verification, for effect...
