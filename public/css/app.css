@@ -46,6 +46,12 @@ html,body {
 
 ul {
     list-style-type: none;
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+}
+
+.shelf-menu {
+    padding: 0 !important;
 }
 
 /* Wrapper for page content to push down footer */
@@ -62,6 +68,7 @@ ul {
 #footer {
   height: 60px;
 }
+
 #footer {
   background-color: #f5f5f5;
 }
