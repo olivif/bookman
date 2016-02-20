@@ -41,3 +41,6 @@ out.txt
 
 # bower
 bower_components
+
+# typescript
+typings
