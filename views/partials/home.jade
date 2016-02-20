@@ -9,7 +9,7 @@ div
                             a(href="#"){{shelf.name}}  
         div.col-md-10 
             ul
-                li(ng-repeat="book in shelves.selectedShelf.books")
+                li(ng-repeat="book in shelves.selectedShelf.books track by $index")
                     div
                         .card(style='background-image: url({{book.thumb}});')
                             h3 {{book.title}}

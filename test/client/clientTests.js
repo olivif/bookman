@@ -8,13 +8,13 @@ describe("client tests", function () {
         scope = $rootScope.$new();
 
         createController = function () {
-            return $controller('EmptyController', {
+            return $controller('LoginController', {
                 '$scope': scope
             });
         };
     }));
 
-    describe("EmptyController", function () {
+    describe("LoginController", function () {
 
         it('should find controller', function () {
             var controller = createController();
