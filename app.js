@@ -16,6 +16,7 @@ dotenv.load();
 
 // Api
 var routeIndex = require('./routes/index');
+var routeUser = require('./routes/user');
 var routeGoodreads = require('./routes/goodreads');
 
 // Auth 
@@ -71,16 +72,9 @@ function configureErrorHandling() {
 }
 
 function configureRoutes() {
-    
-    // Routes
-    // serve index and view partials
+
     app.use('/', routeIndex);
-
-    // Api
-    app.get('/user/name', function (req, res) {
-        res.send(userStore.user.name);
-    });
-
+    app.use('/user', routeUser);
     app.use("/goodreads", routeGoodreads);
     
     // Redirect all others to the index (HTML5 history)
