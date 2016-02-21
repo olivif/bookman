@@ -52,11 +52,17 @@ app.factory('bookService', ["$http", function ($http) {
         });
     }
     
-    instance.getBooks = function(shelf) {
+    instance.getBooks = function(shelf, page) {
         return $http({
             method: 'GET',
-            url: '/api/books/' + shelf
+            url: '/api/books/' + shelf + "/" + page + "/" + instance.getBooksPerPage()
         });
+    }
+    
+    instance.getBooksPerPage = function() {
+        // This is currently the max number of books per
+        // request that goodreads supports.
+        return 50;
     }
     
     return instance;

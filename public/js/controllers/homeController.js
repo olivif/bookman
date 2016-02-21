@@ -1,5 +1,5 @@
 // HomeController
-app.controller('HomeController', ["$scope", "bookService", function ($scope, bookService) {
+app.controller('HomeController', ["$scope", "bookService", "Errors", function ($scope, bookService, Errors) {
 
     function setupShelves(shelves) {
         // Add placeholder book objects until the data loads
@@ -7,43 +7,84 @@ app.controller('HomeController', ["$scope", "bookService", function ($scope, boo
             shelf.books = [];
             for (var bookIdx = 0; bookIdx < shelf.bookCount; bookIdx++) {
                 shelf.books.push({});
-                shelf.loading = true;
-            } 
+            }
         });
 
         // Now setup to scope
         $scope.shelves = shelves;
-        $scope.shelves.selectedShelf = $scope.shelves[0];
-        $scope.selectShelf = function (shelf) {
-            $scope.shelves.selectedShelf = shelf;
-            console.log("selected " + shelf);
+        $scope.shelves.selectedShelfId = $scope.shelves[0].id;
+        $scope.selectShelf = function (id) {
+            $scope.shelves.selectedShelfId = id;
         }
-        
     }
 
-    bookService.getShelves()
-        .success(function (data, status, headers, config) {
-            setupShelves(data);
-            console.log(data);
-            
-            // Then also for each shelf, queue up a request to get
-            // all the books and store it once it comes.
-            data.forEach(function (shelf) {
-                bookService.getBooks(shelf.name)
-                    .success(function (data, status, headers, config) {
-                        console.log("got back books for " + shelf.name);
-                        console.log(data);
-                        console.log();
-                        shelf.books = data;
-                        shelf.loading = false;
-                    })
-                    .error(function (data, status, headers, config) {
-                        // set some error somewhere
-                    });
-            }, this);
-        })
-        .error(function (data, status, headers, config) {
-            // set some error somewhere
-        });
+    function updateShelf(shelfToUpdate) {
+        $scope.shelves.forEach(function (shelf) {
+            if (shelf.id === shelfToUpdate.id) {
+                shelf = shelfToUpdate;
+            }
+        }, this);
+    }
+    function loadBooksForShelf(shelf, page) {
+
+        if (shelf === undefined) {
+            // If no shelf is passed in we use the currently selected one.
+            shelf = $scope.getCurrentShelf();
+        }
+        if (page === undefined) {
+            // We didnt get a page so we'll just load the next one.
+            page = shelf.lastPageLoaded + 1;
+        }
+        if (page === 1) {
+            // If we're on the first page we have to wipe the old data first.
+            shelf.books = [];
+        }
+
+        bookService.getBooks(shelf.name, page)
+            .success(function (data, status, headers, config) {
+                shelf.books = shelf.books.concat(data);
+                shelf.lastPageLoaded = page;
+                updateShelf(shelf);
+            })
+            .error(function (data, status, headers, config) {
+                $scope.error = Errors.FAILED_LOAD_BOOKS;
+            });
+    }
+
+    function loadShelves() {
+
+        bookService.getShelves()
+            .success(function (data, status, headers, config) {
+                setupShelves(data);
+                // Then also for each shelf, queue up a request to get
+                // all the books and store it once it comes.
+                data.forEach(function (shelf) {
+                    // Get the first page only
+                    loadBooksForShelf(shelf, 1);
+                }, this);
+            })
+            .error(function (data, status, headers, config) {
+                $scope.error = Errors.FAILED_LOAD_SHELVES;
+            });
+    }
+
+    function getCurrentShelf() {
+        return getShelfById($scope.shelves.selectedShelfId);
+    }
+    
+    function getShelfById(shelfId) {
+        var foundShelf = null;
+        $scope.shelves.forEach(function (shelf) {
+            if (shelf.id === shelfId) {
+                foundShelf = shelf;
+            }
+        }, this);
+        return foundShelf;
+    }
+
+    $scope.getCurrentShelf = getCurrentShelf;
+    $scope.loadBooksForShelf = loadBooksForShelf;
+
+    loadShelves();
 
 }]);
