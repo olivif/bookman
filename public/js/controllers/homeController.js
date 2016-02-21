@@ -1,7 +1,6 @@
 // HomeController
 app.controller('HomeController', ["$scope", "bookService", function ($scope, bookService) {
 
-
     function setupShelves(shelves) {
         $scope.shelves = shelves;
         $scope.shelves.selectedShelf = $scope.shelves[0];
