@@ -62,7 +62,7 @@ describe("server tests", function () {
 
         it("should be able to get books for shelf", function (done) {
 
-            goodreadsApi.getBooksForShelf(testUserId, testShelf, function (results) {
+            goodreadsApi.getBooksForShelf(testUserId, testShelf, 1, 50, function (results) {
                 var properties = ["book"];
                 verifyResults(results, properties);
 
