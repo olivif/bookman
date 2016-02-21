@@ -2,16 +2,7 @@
 var should = require("should");
 
 // Dev dependencies
-var app = require("./../app");
-
-describe("test", function () {
-
-    it("should be able to add 1 + 1", function (done) {
-        var two = 1 + 1;
-        two.should.eql(2);
-        done();
-    });
-});
+var app = require("./../../app");
 
 // Server tests
 describe("server tests", function () {

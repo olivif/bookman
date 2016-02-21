@@ -16,7 +16,6 @@ dotenv.load();
 
 // Api
 var routes = require('./routes');
-var api = require('./routes/api');
 
 // Auth 
 var passport = require('passport');
@@ -31,12 +30,12 @@ function configurePassport() {
     //   the user by ID when deserializing.  However, since this example does not
     //   have a database of user records, the complete Goodreads profile is
     //   serialized and deserialized.
-    passport.serializeUser(function(user, done) {
-    done(null, user);
+    passport.serializeUser(function (user, done) {
+        done(null, user);
     });
 
-    passport.deserializeUser(function(obj, done) {
-    done(null, obj);
+    passport.deserializeUser(function (obj, done) {
+        done(null, obj);
     });
 
     // Use the GoodreadsStrategy within Passport.
@@ -48,18 +47,18 @@ function configurePassport() {
         consumerSecret: process.env.GOODREADS_SECRET,
         callbackURL: "/goodreads/callback"
     },
-    function(token, tokenSecret, profile, done) {
-        // asynchronous verification, for effect...
-        process.nextTick(function () {
+        function (token, tokenSecret, profile, done) {
+            // asynchronous verification, for effect...
+            process.nextTick(function () {
         
-        // To keep the example simple, the user's Goodreads profile is returned to
-        // represent the logged-in user.  In a typical application, you would want
-        // to associate the Goodreads account with a user record in your database,
-        // and return that user instead.
-        return done(null, profile);
-        });
-    }
-    ));
+                // To keep the example simple, the user's Goodreads profile is returned to
+                // represent the logged-in user.  In a typical application, you would want
+                // to associate the Goodreads account with a user record in your database,
+                // and return that user instead.
+                return done(null, profile);
+            });
+        }
+        ));
 }
 
 configurePassport();
@@ -86,15 +85,15 @@ function configureApp() {
 }
 
 function configureSession() {
-    app.use(session({ 
+    app.use(session({
         secret: 'keyboard cat',
         resave: true,
-        saveUninitialized: true 
-        }));
+        saveUninitialized: true
+    }));
     // Initialize Passport!  Also use passport.session() middleware, to support 
     // persistent login sessions (recommended). 
-    app.use(passport.initialize()); 
-    app.use(passport.session()); 
+    app.use(passport.initialize());
+    app.use(passport.session());
 }
 
 function configureMiddleware() {
@@ -113,12 +112,12 @@ function configureErrorHandling() {
 
     // development only
     if (env === 'development') {
-    app.use(errorHandler());
+        app.use(errorHandler());
     }
 
     // production only
     if (env === 'production') {
-    // TODO
+        // TODO
     }
 }
 
@@ -130,7 +129,6 @@ function configureRoutes() {
     app.get('/partials/:name', routes.partials);
 
     // Api
-    app.get('/api/name', api.name);
     app.get('/goodreads',
         passport.authenticate('goodreads'),
         function (req, res) {
@@ -153,7 +151,7 @@ function configureRoutes() {
         });
 
     app.get('/user/name', function (req, res) {
-    res.send(userStore.user.name);
+        res.send(userStore.user.name);
     });
 
     // Redirect all others to the index (HTML5 history)
@@ -161,10 +159,10 @@ function configureRoutes() {
 }
 
 function startServer() {
-    
+
     var server = http.createServer(app);
     var port = app.get('port');
-    
+
     server.listen(port, function () {
         console.log('Express server listening on port ' + port);
     });
