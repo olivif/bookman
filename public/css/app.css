@@ -34,13 +34,8 @@ ul {
 }
 
 /*Cards*/
-.card-wrap {
-    background-color: #000000;
-}
-
 .card-overlay {
     display: block;
-    background-color: #000000;
     width: 150px;
     height: 200px;
     float: left;
@@ -53,6 +48,10 @@ ul {
     width: inherit;
     height: inherit;
     float: left;
+}
+
+.card-overlay:hover {
+    background-color: #000000;
 }
 
 .card:hover {
