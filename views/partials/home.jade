@@ -6,7 +6,7 @@ div
                 .nav.nav-pills.nav-stacked
                     li(ng-repeat="shelf in shelves", role="presentation", ng-click="selectShelf(shelf)")
                         div
-                            a(href="#"){{shelf.name}}  
+                            a(href="#"){{shelf.name}} ({{shelf.bookCount}})  
         div.col-md-10 
             ul
                 li(ng-repeat="book in shelves.selectedShelf.books track by $index")

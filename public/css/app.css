@@ -51,9 +51,9 @@ ul {
 }
 
 .card-overlay:hover {
-    background-color: #000000;
+    background-color: #FFFFFF;
 }
 
 .card:hover {
-    opacity: 0.3;
+    opacity: 0.8;
 }
