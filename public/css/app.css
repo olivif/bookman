@@ -35,6 +35,7 @@ ul {
 
 /*Cards*/
 .card-overlay {
+    background-color: #eeeeee;
     display: block;
     width: 150px;
     height: 200px;
@@ -51,7 +52,7 @@ ul {
 }
 
 .card-overlay:hover {
-    background-color: #FFFFFF;
+    background-color: #eeeeee;
 }
 
 .card:hover {
