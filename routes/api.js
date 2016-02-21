@@ -18,9 +18,9 @@ router.get('/shelves',
         });
     });
 
-router.get('/books/:shelf',
+router.get('/books/:shelf/:page/:perPage',
     function (req, res) {
-        goodreadsApi.getBooksForShelf(userStore.user.id, req.params.shelf, function (goodreadsData) {
+        goodreadsApi.getBooksForShelf(userStore.user.id, req.params.shelf, req.params.page, req.params.perPage, function (goodreadsData) {
             res.json(goodreadsApiConvertor(goodreadsData, book));
         });
     });
