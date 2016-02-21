@@ -34,5 +34,17 @@ describe("server tests", function () {
                 done();
             })
         });
+
+        it("should be able to get books for shelf", function (done) {
+
+            this.timeout(50000);
+            goodreadsApi.getBooksForShelf("5391468", "read", function (results) {
+                should.exist(results);
+
+                results.should.be.array;
+
+                done();
+            })
+        });
     });
 });

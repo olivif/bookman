@@ -52,5 +52,12 @@ app.factory('bookService', ["$http", function ($http) {
         });
     }
     
+    instance.getBooks = function(shelf) {
+        return $http({
+            method: 'GET',
+            url: '/api/books/' + shelf
+        });
+    }
+    
     return instance;
 }]);

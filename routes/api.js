@@ -9,4 +9,11 @@ router.get('/shelves',
         });
     });
 
+router.get('/books/:shelf',
+    function (req, res) {
+        goodreadsApi.getBooksForShelf(userStore.user.id, req.params.shelf, function (results) {
+            res.json(results);
+        });
+    });
+    
 module.exports = router;
