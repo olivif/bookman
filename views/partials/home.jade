@@ -1,16 +1,16 @@
 div
     container
-        h3 Shelves
         div.shelf-menu.col-md-2
-            ul
-                .nav.nav-pills.nav-stacked
-                    li(ng-repeat="shelf in shelves", role="presentation", ng-click="selectShelf(shelf)")
-                        div
-                            a(href="#"){{shelf.name}}  
+            h3 Shelves 
+            ul.nav.nav-pills.nav-stacked
+                li(ng-repeat="shelf in shelves", ng-class="{active: shelf === selectedShelf}")
+                    a(href="#", ng-click="selectShelf(shelf)"){{shelf.name}} ({{shelf.bookCount}})  
+                
         div.col-md-10 
+            h3 
+            div(ng-show="shelves.selectedShelf.bookCount === 0")
+                p You have no books here
             ul
                 li(ng-repeat="book in shelves.selectedShelf.books track by $index")
-                    div
-                        .card(style='background-image: url({{book.thumb}});')
-                            h4 {{book.title}}
-                            p {{book.author}}
+                    div.card-overlay
+                        a.card(href="#", style='background-image: url({{book.thumb}});background-repeat: no-repeat;background-size: 100% auto;')
