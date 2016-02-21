@@ -19,7 +19,6 @@ app.controller('HomeController', ["$scope", "bookService", function ($scope, boo
             // Then also for each shelf, queue up a request to get
             // all the books and store it once it comes.
             data.forEach(function (shelf) {
-
                 bookService.getBooks(shelf.name)
                     .success(function (data, status, headers, config) {
                         console.log("got back books for " + shelf.name);
