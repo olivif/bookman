@@ -44,3 +44,6 @@ bower_components
 
 # typescript
 typings
+
+# log
+npm-debug.log
