@@ -18,6 +18,7 @@ dotenv.load();
 var routeIndex = require('./routes/index');
 var routeUser = require('./routes/user');
 var routeGoodreads = require('./routes/goodreads');
+var routeApi = require('./routes/api');
 
 // Auth 
 var passport = require('./lib/goodreadsPassport');
@@ -76,6 +77,7 @@ function configureRoutes() {
     app.use('/', routeIndex);
     app.use('/user', routeUser);
     app.use("/goodreads", routeGoodreads);
+    app.use("/api", routeApi);
     
     // Redirect all others to the index (HTML5 history)
     app.get('*', function (req, res) {

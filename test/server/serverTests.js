@@ -23,7 +23,7 @@ describe("server tests", function () {
                 results.should.be.array;
                 results.length.should.eql(5);
 
-                var properties = ["id", "name", "book_count"];
+                var properties = ["id", "name", "bookCount"];
 
                 results.forEach(function (result) {
                     properties.forEach(function (property) {

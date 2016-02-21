@@ -1,5 +1,5 @@
 // Book service
-app.factory('bookService', function () {
+app.factory('bookService', ["$http", function ($http) {
     var instance = {};
 
     function getMockBooks(numberOfBooks, prefix) {
@@ -46,8 +46,11 @@ app.factory('bookService', function () {
     }
     
     instance.getShelves = function() {
-        return getMockShelves();
+        return $http({
+            method: 'GET',
+            url: '/api/shelves'
+        });
     }
-
+    
     return instance;
-});
+}]);
