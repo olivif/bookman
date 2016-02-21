@@ -23,7 +23,7 @@ describe("server tests", function () {
                 results.should.be.array;
                 results.length.should.eql(5);
 
-                var properties = ["id", "name", "bookCount"];
+                var properties = ["id", "name", "book_count"];
 
                 results.forEach(function (result) {
                     properties.forEach(function (property) {
@@ -37,7 +37,7 @@ describe("server tests", function () {
 
         it("should be able to get books for shelf", function (done) {
 
-            this.timeout(50000);
+            this.timeout(10000);
             goodreadsApi.getBooksForShelf("5391468", "read", function (results) {
                 should.exist(results);
 
