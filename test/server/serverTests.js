@@ -47,7 +47,7 @@ describe("server tests", function () {
 
             verifyProperties(data, properties);
 
-            console.log(data[0]); // Print the first result for debugging
+            console.log(JSON.stringify(data[0])); // Print the first result for debugging
         }
 
         it("should be able to get shelves", function (done) {

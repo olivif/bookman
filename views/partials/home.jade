@@ -11,6 +11,5 @@ div
             ul
                 li(ng-repeat="book in shelves.selectedShelf.books track by $index")
                     div
-                        .card(style='background-image: url({{book.thumb}});')
-                            h4 {{book.title}}
+                        .card(style='background-image: url({{book.thumb}});background-repeat: no-repeat;background-size: 100% auto;')
                             p {{book.author}}
