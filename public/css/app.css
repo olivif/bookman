@@ -1,47 +1,8 @@
-/* app css stylesheet */
+/*App styles*/
 
+/*Default overrides*/
 html,body {
   height: 100%;
-  /* The html and body elements cannot have any padding or margin. */
-}
-
-.menu {
-  list-style: none;
-  border-bottom: 0.1em solid black;
-  margin-bottom: 2em;
-  padding: 0 0 0.5em;
-}
-
-.menu:before {
-  content: "[";
-}
-
-.menu:after {
-  content: "]";
-}
-
-.menu > li {
-  display: inline;
-}
-
-.menu > li:before {
-  content: "|";
-  padding-right: 0.3em;
-}
-
-.menu > li:nth-child(1):before {
-  content: "";
-  padding: 0;
-}
-
-.card {
-    display: block;
-    background-color: #e6e6e6;
-    width: 150px;
-    height: 200px;
-    float: left;
-    margin-right: 10px; 
-    margin-bottom: 10px; 
 }
 
 ul {
@@ -50,20 +11,14 @@ ul {
     padding: 0 0 0 0;
 }
 
-.shelf-menu {
-    padding: 0 !important;
-}
-
-/* Wrapper for page content to push down footer */
+/*Footer*/
 #wrap {
   min-height: 100%;
   height: auto !important;
   height: 100%;
-  /* Negative indent footer by it's height */
   margin: 0 auto -60px;
 }
 
-/* Set the fixed height of the footer here */
 #push,
 #footer {
   height: 60px;
@@ -71,4 +26,35 @@ ul {
 
 #footer {
   background-color: #f5f5f5;
+}
+
+/*Menu*/
+.shelf-menu {
+    padding: 0 !important;
+}
+
+/*Cards*/
+.card-wrap {
+    background-color: #000000;
+}
+
+.card-overlay {
+    display: block;
+    background-color: #000000;
+    width: 150px;
+    height: 200px;
+    float: left;
+    margin-right: 10px; 
+    margin-bottom: 10px; 
+}
+
+.card {
+    display: block;
+    width: inherit;
+    height: inherit;
+    float: left;
+}
+
+.card:hover {
+    opacity: 0.3;
 }
