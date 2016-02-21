@@ -31,14 +31,16 @@
     "body-parser": "^1.0.2",
     "dotenv": "^2.0.0",
     "error-handler": "^0.1.4",
-    "express": "~4.1.1", 
+    "express": "~4.1.1",
     "express-error-handler": "^1.0.1",
     "express-session": "^1.13.0",
     "jade": "~0.31.2",
     "method-override": "^1.0.0",
     "morgan": "^1.0.0",
     "passport": "^0.3.2",
-    "passport-goodreads": "^1.0.0"
+    "passport-goodreads": "^1.0.0",
+    "request": "^2.69.0",
+    "xml2js": "^0.4.16"
   },
   "devDependencies": {
     "bower": "^1.7.7",
