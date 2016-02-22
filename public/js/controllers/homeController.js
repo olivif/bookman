@@ -69,6 +69,9 @@ app.controller('HomeController', ["$scope", "bookService", "Errors", function ($
     }
 
     function getCurrentShelf() {
+        if ($scope.shelves === undefined) {
+            return null;
+        }
         return getShelfById($scope.shelves.selectedShelfId);
     }
     
@@ -82,6 +85,12 @@ app.controller('HomeController', ["$scope", "bookService", "Errors", function ($
         return foundShelf;
     }
 
+    function navigateToBook(thumb) {
+        $state.transitionTo("book", { thumb: thumb });
+    }
+    
+    $scope.navigateToBook = navigateToBook;
+    
     $scope.getCurrentShelf = getCurrentShelf;
     $scope.loadBooksForShelf = loadBooksForShelf;
 
