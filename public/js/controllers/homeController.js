@@ -69,6 +69,9 @@ app.controller('HomeController', ["$scope", "bookService", "Errors", function ($
     }
 
     function getCurrentShelf() {
+        if ($scope.shelves === undefined) {
+            return [];
+        }
         return getShelfById($scope.shelves.selectedShelfId);
     }
     
