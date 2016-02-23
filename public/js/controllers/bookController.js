@@ -1,12 +1,5 @@
 // BookController
-app.controller('BookController', ['$scope', '$routeParams', function ($scope, $routeParams) {
+app.controller('BookController', ['$scope', '$routeParams', "bookService", function ($scope, $routeParams, bookService) {
 
-    function initializeBook() {
-        var book = {};
-        book.title = $routeParams.title;
-
-        return book;
-    }
-    
-    $scope.book = initializeBook();
+    $scope.book = bookService.getCurrentBook();
 }]);

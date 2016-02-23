@@ -14,7 +14,7 @@ app.config(function ($routeProvider, $locationProvider) {
             templateUrl: 'partials/home',
             controller: 'HomeController'
         })
-        .when('/book/:title', {
+        .when('/book', {
             templateUrl: 'partials/book',
             controller: 'BookController'
         })

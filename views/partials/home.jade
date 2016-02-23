@@ -19,6 +19,6 @@ div
             ul
                 li(ng-repeat="book in getCurrentShelf().books track by $index")
                     div.card-overlay
-                        a.card(href="/book/{{book.title}}", style='background-image: url({{book.thumb}});background-repeat: no-repeat;background-size: 100% auto;')
+                        a.card(ng-click="navigateToBook(book)", style='background-image: url({{book.thumb}});background-repeat: no-repeat;background-size: 100% auto;')
         button.btn(ng-show=("getCurrentShelf().books.length < getCurrentShelf().bookCount"))
             a(href="#", ng-click="loadBooksForShelf()") Load more books  
