@@ -1,5 +1,5 @@
 // HomeController
-app.controller('HomeController', ["$scope", "bookService", "Errors", function ($scope, bookService, Errors) {
+app.controller('HomeController', ["$scope", "$location", "bookService", "Errors", function ($scope, $location, bookService, Errors) {
 
     function setupShelves(shelves) {
         // Add placeholder book objects until the data loads
@@ -69,6 +69,9 @@ app.controller('HomeController', ["$scope", "bookService", "Errors", function ($
     }
 
     function getCurrentShelf() {
+        if ($scope.shelves === undefined) {
+            return [];
+        }
         return getShelfById($scope.shelves.selectedShelfId);
     }
     
@@ -82,8 +85,16 @@ app.controller('HomeController', ["$scope", "bookService", "Errors", function ($
         return foundShelf;
     }
 
+    function navigateToBook(book) {
+        console.log("Navigatign to book");
+        console.log(book);
+        bookService.setCurrentBook(book);
+        $location.path("/book");
+    }
+    
     $scope.getCurrentShelf = getCurrentShelf;
     $scope.loadBooksForShelf = loadBooksForShelf;
+    $scope.navigateToBook = navigateToBook;
 
     loadShelves();
 

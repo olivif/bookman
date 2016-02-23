@@ -2,6 +2,8 @@
 app.factory('bookService', ["$http", function ($http) {
     var instance = {};
 
+    var currentBook = {};
+
     function getMockBooks(numberOfBooks, prefix) {
         var books = [];
         
@@ -57,6 +59,18 @@ app.factory('bookService', ["$http", function ($http) {
             method: 'GET',
             url: '/api/books/' + shelf + "/" + page + "/" + instance.getBooksPerPage()
         });
+    }
+    
+    instance.setCurrentBook = function(book) {
+        instance.currentBook = book;
+    }
+    
+    instance.getCurrentBook = function() {
+        return instance.currentBook;
+    }
+    
+    instance.clearCurrentBook = function() {
+        instance.currentBook = {};
     }
     
     instance.getBooksPerPage = function() {

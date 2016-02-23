@@ -14,6 +14,10 @@ app.config(function ($routeProvider, $locationProvider) {
             templateUrl: 'partials/home',
             controller: 'HomeController'
         })
+        .when('/book', {
+            templateUrl: 'partials/book',
+            controller: 'BookController'
+        })
         .otherwise({
             redirectTo: '/'
         });
