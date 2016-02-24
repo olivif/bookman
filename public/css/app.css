@@ -62,6 +62,8 @@ ul {
 /*Book page*/
 .book-header {
     display: block;
+    margin-bottom: 20px;
+    float: left;
 }
 
 .book-header-item {

@@ -61,6 +61,13 @@ app.factory('bookService', ["$http", function ($http) {
         });
     }
     
+    instance.getAuthorBooks = function(authorId, page) {
+        return $http({
+            method: 'GET',
+            url: '/api/author/' + authorId + "/books/" + page
+        });
+    }
+    
     instance.setCurrentBook = function(book) {
         instance.currentBook = book;
     }

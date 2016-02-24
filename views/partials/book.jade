@@ -12,12 +12,9 @@ div.book-main.col-md-8
 
 div.col-md-4
     h3 More from this author
-    div 
-        h5 Book 1 
-        p Description for book 1
-    div 
-        h5 Book 2 
-        p Description for book 2
-    div 
-        h5 Book 3
-        p Description for book 3
+    ul
+        li(ng-repeat="authorBook in authorBooks")
+            div 
+                img(src="{{authorBook.thumb}}")
+                h5 {{authorBook.title}}
+                p Description for book
