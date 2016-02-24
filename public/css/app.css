@@ -58,3 +58,22 @@ ul {
 .card:hover {
     opacity: 0.8;
 }
+
+/*Book page*/
+.book-header {
+    display: block;
+}
+
+.book-header-item {
+    display: block;
+    float: left;
+}
+
+.book-description {
+    display: block;
+    float: left;
+}
+
+.book-header-item.thumb {
+    margin-right: 20px;
+}

@@ -1,6 +1,23 @@
-img(src="{{book.thumb}}")
+div.book-main.col-md-8
+    div.book-header
+        div.book-header-item.thumb
+            img(src="{{book.thumb}}")
 
-h2 {{book.title}}
-h3 {{book.author.name}}
+        div.book-header-item.title
+            h2 {{book.title}}
+            h3 {{book.author.name}}
 
-p {{book.description}}
+    div.book-description
+        p {{book.description}}
+
+div.col-md-4
+    h3 More from this author
+    div 
+        h5 Book 1 
+        p Description for book 1
+    div 
+        h5 Book 2 
+        p Description for book 2
+    div 
+        h5 Book 3
+        p Description for book 3
