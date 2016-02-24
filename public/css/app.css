@@ -59,6 +59,29 @@ ul {
     opacity: 0.8;
 }
 
+.card-small {
+    width: 300px;
+    height: 120px;
+    float: left;
+    margin-bottom: 20px;
+}
+
+.card-small-thumb {
+    width: 80px;
+    height: auto;
+    float: left;
+    margin-right: 20px;
+}
+
+.card-small-thumb img {
+    width: inherit;
+}
+
+.card-small-content {
+    max-width: 175px;
+    float: left;
+}
+
 /*Book page*/
 .book-header {
     display: block;

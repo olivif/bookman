@@ -14,7 +14,10 @@ div.col-md-4
     h3 More from this author
     ul
         li(ng-repeat="authorBook in authorBooks")
-            div 
-                img(src="{{authorBook.thumb}}")
-                h5 {{authorBook.title}}
-                p Description for book
+            div.card-small
+                div.card-small-thumb
+                    img(src="{{authorBook.thumb}}")
+                div.card-small-content
+                    h5 
+                        b {{authorBook.title}}
+                    p {{authorBook.description | limitTo: 75}}
