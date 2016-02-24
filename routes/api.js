@@ -24,5 +24,12 @@ router.get('/books/:shelf/:page/:perPage',
             res.json(goodreadsApiConvertor(goodreadsData, book));
         });
     });
-    
+
+router.get('/author/:authorId/books/:page',
+    function (req, res) {
+        goodreadsApi.getAuthorBooks(req.params.authorId, req.params.page, function (goodreadsData) {
+            res.json(goodreadsApiConvertor(goodreadsData, book));
+        });
+    });
+        
 module.exports = router;

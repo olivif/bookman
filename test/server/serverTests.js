@@ -25,6 +25,7 @@ describe("server tests", function () {
         // Test constants
         var testUserId = "5391468";
         var testShelf = "read";
+        var testAuthorId = "1063732";
         
         // Checks whether an array of data has the required properties
         // TODO replace this with a schema validator, so we can do subproperties etc.
@@ -63,6 +64,16 @@ describe("server tests", function () {
         it("should be able to get books for shelf", function (done) {
 
             goodreadsApi.getBooksForShelf(testUserId, testShelf, 1, 50, function (results) {
+                var properties = ["book"];
+                verifyResults(results, properties);
+
+                done();
+            })
+        });
+        
+        it("should be able to get author's books", function (done) {
+
+            goodreadsApi.getAuthorBooks(testAuthorId, 1, function (results) {
                 var properties = ["book"];
                 verifyResults(results, properties);
 
