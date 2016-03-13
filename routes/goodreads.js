@@ -1,6 +1,6 @@
-var router = require("express").Router();
-var passport = require('./../lib/goodreadsPassport');
-var userStore = require('./../lib/userStore');
+const router = require('express').Router();
+const passport = require('./../lib/goodreadsPassport');
+const userStore = require('./../lib/userStore');
 
 router.get('/',
     passport.authenticate('goodreads'),
@@ -17,7 +17,7 @@ router.get('/',
 router.get('/callback',
     passport.authenticate('goodreads', { failureRedirect: '/login' }),
     function (req, res) {
-        console.log("Got callback from goodreads");
+        console.log('Got callback from goodreads');
         console.log(req.user);
         userStore.storeGoodreadsUser(req.user);
         res.redirect('/home');

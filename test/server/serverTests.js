@@ -74,7 +74,7 @@ describe("server tests", function () {
         it("should be able to get author's books", function (done) {
 
             goodreadsApi.getAuthorBooks(testAuthorId, 1, function (results) {
-                var properties = ["book"];
+                var properties = ["authors"];
                 verifyResults(results, properties);
 
                 done();

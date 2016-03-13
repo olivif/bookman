@@ -1,5 +1,5 @@
-var router = require("express").Router();
-var userStore = require('./../lib/userStore');
+const router = require('express').Router();
+const userStore = require('./../lib/userStore');
 
 router.get('/name',
     function (req, res) {

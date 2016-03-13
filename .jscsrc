@@ -1,0 +1,12 @@
+{
+    "preset": "airbnb",
+    "validateIndentation": 4,
+    "requireLineFeedAtFileEnd": false,
+    "validateLineBreaks": null,
+    "requireTrailingComma": false,
+    "excludeFiles": [
+        "public/js/lib/angular/**",
+        "public/bootstrap/**",
+        "public/js/lib/jquery/**"
+    ]
+}

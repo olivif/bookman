@@ -1,28 +1,28 @@
-// Express 
-var express = require('express');
-var errorHandler = require('express-error-handler');
-var session = require('express-session')
-var http = require('http');
-var path = require('path');
+// Express
+const express = require('express');
+const errorHandler = require('express-error-handler');
+const session = require('express-session');
+const http = require('http');
+const path = require('path');
 
 // Use dependencies
-var morgan = require('morgan');
-var bodyParser = require('body-parser');
-var methodOverride = require('method-override');
+const morgan = require('morgan');
+const bodyParser = require('body-parser');
+const methodOverride = require('method-override');
 
 // Env
-var dotenv = require('dotenv');
+const dotenv = require('dotenv');
 dotenv.load();
 
 // Api
-var routeIndex = require('./routes/index');
-var routeUser = require('./routes/user');
-var routeGoodreads = require('./routes/goodreads');
-var routeApi = require('./routes/api');
+const routeIndex = require('./routes/index');
+const routeUser = require('./routes/user');
+const routeGoodreads = require('./routes/goodreads');
+const routeApi = require('./routes/api');
 
-// Auth 
-var passport = require('./lib/goodreadsPassport');
-var userStore = require('./lib/userStore');
+// Auth
+const passport = require('./lib/goodreadsPassport');
+const userStore = require('./lib/userStore');
 
 function configureApp() {
     // Configuration
@@ -39,10 +39,11 @@ function configureSession() {
     app.use(session({
         secret: 'keyboard cat',
         resave: true,
-        saveUninitialized: true
+        saveUninitialized: true,
     }));
-    // Initialize Passport!  Also use passport.session() middleware, to support 
-    // persistent login sessions (recommended). 
+
+    // Initialize Passport!  Also use passport.session() middleware, to support
+    // persistent login sessions (recommended).
     app.use(passport.initialize());
     app.use(passport.session());
 }
@@ -53,7 +54,9 @@ function configureMiddleware() {
         res.header('Access-Control-Allow-Credentials', true);
         res.header('Access-Control-Allow-Origin', req.headers.origin);
         res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-        res.header('Access-Control-Allow-Headers', 'X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept');
+        res.header(
+            'Access-Control-Allow-Headers',
+            'X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept');
         next();
     });
 }
@@ -61,14 +64,8 @@ function configureMiddleware() {
 function configureErrorHandling() {
     var env = process.env.NODE_ENV || 'development';
 
-    // development only
     if (env === 'development') {
         app.use(errorHandler());
-    }
-
-    // production only
-    if (env === 'production') {
-        // TODO
     }
 }
 
@@ -76,9 +73,9 @@ function configureRoutes() {
 
     app.use('/', routeIndex);
     app.use('/user', routeUser);
-    app.use("/goodreads", routeGoodreads);
-    app.use("/api", routeApi);
-    
+    app.use('/goodreads', routeGoodreads);
+    app.use('/api', routeApi);
+
     // Redirect all others to the index (HTML5 history)
     app.get('*', function (req, res) {
         res.render('index');

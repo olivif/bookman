@@ -6,6 +6,11 @@ install:
 before_script: 
 - bower install 
 script:
+# lint
+- npm run lint-lib
+- npm run lint-app
+- npm run lint-public
+# test amd coverage
 - npm run test-travis-1
 - npm run test-travis-2
 - npm run test-travis-3
