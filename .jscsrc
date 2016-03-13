@@ -5,6 +5,8 @@
     "validateLineBreaks": "CRLF",
     "requireTrailingComma": false,
     "excludeFiles": [
-        "public/lib/angular/**"
+        "public/js/lib/angular/**",
+        "public/bootstrap/**",
+        "public/js/lib/jquery/**"
     ]
 }

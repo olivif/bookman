@@ -7,7 +7,10 @@
     "test": "mocha test/server/*.js && karma start --single-run --browsers PhantomJS",
     "test-travis-1": "istanbul cover ./node_modules/mocha/bin/_mocha test/server/*.js -- -R spec",
     "test-travis-2": "karma start --single-run",
-    "test-travis-3": "./node_modules/.bin/codecov"
+    "test-travis-3": "./node_modules/.bin/codecov",
+    "lint-lib": "jscs lib",
+    "lint-app": "jscs app.js",
+    "lint-public": "jscs public"
   },
   "repository": {
     "type": "git",
@@ -48,6 +51,7 @@
     "chai": "^3.5.0",
     "codecov": "^1.0.1",
     "istanbul": "^0.4.2",
+    "jscs": "^2.11.0",
     "karma": "^0.13.21",
     "karma-chai": "^0.1.0",
     "karma-chrome-launcher": "^0.2.2",
