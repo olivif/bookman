@@ -2,7 +2,7 @@
     "preset": "airbnb",
     "validateIndentation": 4,
     "requireLineFeedAtFileEnd": false,
-    "validateLineBreaks": "CRLF",
+    "validateLineBreaks": null,
     "requireTrailingComma": false,
     "excludeFiles": [
         "public/js/lib/angular/**",
