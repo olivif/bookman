@@ -1,14 +1,14 @@
 // userService
-app.factory('userService', ["$http", function ($http) {
-    
+app.factory('userService', ['$http', function ($http) {
+
     var instance = {};
-    
-    instance.getUserName = function() {
+
+    instance.getUserName = function () {
         return $http({
             method: 'GET',
             url: '/user/name'
         });
-    }
-    
-    return instance; 
+    };
+
+    return instance;
 }]);

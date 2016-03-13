@@ -1,0 +1,10 @@
+{
+    "preset": "airbnb",
+    "validateIndentation": 4,
+    "requireLineFeedAtFileEnd": false,
+    "validateLineBreaks": "CRLF",
+    "requireTrailingComma": false,
+    "excludeFiles": [
+        "public/lib/angular/**"
+    ]
+}
